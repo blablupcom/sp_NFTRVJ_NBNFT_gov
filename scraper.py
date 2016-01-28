@@ -89,9 +89,9 @@ url = "https://www.nbt.nhs.uk/about-us/information-governance/spending-over-£25
 errors = 0
 data = []
 
-#### READ HTML 1.2
+#### READ HTML 1.0
 
-html = urllib2.urlopen(url)
+html = urllib2.urlopen(url.encode('utf-8'))
 soup = BeautifulSoup(html, 'lxml')
 
 
