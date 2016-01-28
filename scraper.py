@@ -85,14 +85,14 @@ def convert_mth_strings ( mth_string ):
 #### VARIABLES 1.0
 
 entity_id = "NFTRVJ_NBNFT_gov"
-url = 'https://www.nbt.nhs.uk/about-us/information-governance/spending-over-%C2%A3225000'
+url = 'https://www.nbt.nhs.uk/about-us/information-governance/spending-over-£25000'
 errors = 0
 data = []
 
-#### READ HTML 1.0
-
-html = urllib2.urlopen(url)
-soup = BeautifulSoup(html, 'lxml')
+#### READ HTML 1.2
+import requests    # import requests to exclude errors
+html = requests.get(url)
+soup = BeautifulSoup(html.text, 'lxml')
 
 
 #### SCRAPE DATA
@@ -100,8 +100,8 @@ soup = BeautifulSoup(html, 'lxml')
 archive_links = soup.find('li', 'expanded active-trail active menu-mlid-1491').find_all('a')
 for archive_link in archive_links:
     archive_url = 'https://www.nbt.nhs.uk'+archive_link['href']
-    html = urllib2.urlopen(archive_url)
-    soup = BeautifulSoup(html, 'lxml')
+    html = requests.get(archive_url)
+    soup = BeautifulSoup(html.text, 'lxml')
     links = soup.find_all('a')
     for link in links:
         try:
