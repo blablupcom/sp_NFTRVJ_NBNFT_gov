@@ -85,13 +85,13 @@ def convert_mth_strings ( mth_string ):
 #### VARIABLES 1.0
 
 entity_id = "NFTRVJ_NBNFT_gov"
-url = u"https://www.nbt.nhs.uk/about-us/information-governance/spending-over-£25000"
+url = unicode('https://www.nbt.nhs.uk/about-us/information-governance/spending-over-£25000')
 errors = 0
 data = []
 
 #### READ HTML 1.0
 
-html = urllib2.urlopen(url.encode('utf-8'))
+html = urllib2.urlopen(url)
 soup = BeautifulSoup(html, 'lxml')
 
 
