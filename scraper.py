@@ -110,7 +110,7 @@ for archive_link in archive_links:
                 url = link['href']
                 title = link.text.strip().split('000')[-1].split('-')[-1].strip()
                 csvMth = title[:3]
-                csvYr = title.split(' ')[-1][:4]
+                csvYr = title.split(' ')[1][:4]
                 csvMth = convert_mth_strings(csvMth.upper())
                 data.append([csvYr, csvMth, url])
         except:
